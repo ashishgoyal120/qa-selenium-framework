@@ -1,0 +1,13 @@
+.classpath
+.mvn/
+.project
+.settings/
+/ExtentReports/
+ExtentReports.zip
+/Screenshots/
+/target/
+/test-output/
+/logs/
+
+
+
