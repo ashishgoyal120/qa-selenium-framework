@@ -20,6 +20,7 @@ public class LoginTest extends BaseTest {
 		elementCount += (login.getTxtUserPassword() == null ? 0 : 1);
 		elementCount += (login.getBtnLoginButton() == null ? 0 : 1);
 		elementCount += (login.getForgetPasswordLink() == null ? 0 : 1);
+		//ExtentLogger.pass("Elements Are Present", true);  //We need to optimize screenshot for passed tcs
 		if (elementCount != 4) {
 			Assert.fail("Elements not present");
 			ExtentLogger.info("Login Element Not present");

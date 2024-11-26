@@ -1,9 +1,6 @@
 package org.selenium.listeners;
 
-import static org.selenium.constants.FrameworkConstants.ICON_BUG;
-import static org.selenium.constants.FrameworkConstants.ICON_SMILEY_FAIL;
-import static org.selenium.constants.FrameworkConstants.ICON_SMILEY_PASS;
-
+import static org.selenium.constants.FrameworkConstants.*;
 import java.util.Arrays;
 
 import org.selenium.annotations.FrameworkAnnotation;
@@ -19,37 +16,32 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-import com.aventstack.extentreports.markuputils.ExtentColor;
-import com.aventstack.extentreports.markuputils.Markup;
-import com.aventstack.extentreports.markuputils.MarkupHelper;
+import com.aventstack.extentreports.markuputils.*;
 
-public class ListenerClass implements ITestListener, ISuiteListener{
+public class ListenerClass implements ITestListener, ISuiteListener {
+
 	static int count_passedTCs;
 	static int count_skippedTCs;
 	static int count_failedTCs;
 	static int count_totalTCs;
-	
+
 	@Override
 	public void onStart(ISuite suite) {
 		ExtentReport.initReport();
 	}
-	
+
 	@Override
 	public void onFinish(ISuite suite) {
 		ExtentReport.flushReports();
 		ZipUtils.zip();
 		EmailSendUtils.sendEmail(count_totalTCs, count_passedTCs, count_failedTCs, count_skippedTCs);
-
 	}
-	
+
 	@Override
 	public void onTestStart(ITestResult result) {
-		try {
 
 		count_totalTCs = count_totalTCs + 1;
 		ExtentReport.createTest(result.getMethod().getMethodName());
-		 ExtentReport.createTest(result.getMethod().getDescription());
-
 		ExtentReport.addAuthors(result.getMethod().getConstructorOrMethod().getMethod()
 				.getAnnotation(FrameworkAnnotation.class).author());
 
@@ -57,13 +49,8 @@ public class ListenerClass implements ITestListener, ISuiteListener{
 				.getAnnotation(FrameworkAnnotation.class).category());
 
 		ExtentReport.addDevices();
-	ExtentLogger.info("<b>" +
-		BrowserOSInfoUtils.getOS_Browser_BrowserVersionInfo() + "</b>");
 		ExtentLogger.info("<b>" + IconUtils.getOSIcon() + "  &  " + IconUtils.getBrowserIcon() + " --------- "
 				+ BrowserOSInfoUtils.getOS_Browser_BrowserVersionInfo() + "</b>");
-		}catch(Exception e) {
-			e.printStackTrace();
-		}
 
 	}
 

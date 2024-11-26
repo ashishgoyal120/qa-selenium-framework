@@ -3,7 +3,6 @@ package org.selenium.base;
 import java.io.File;
 import java.io.IOException;
 
-
 import javax.imageio.ImageIO;
 
 import org.apache.commons.io.FileUtils;
@@ -13,8 +12,10 @@ import org.openqa.selenium.WebDriver;
 import org.selenium.driver.DriverManager;
 import org.selenium.driver.DriverManagerFactory;
 import org.selenium.enums.DriverType;
+import org.selenium.listeners.AnnotationTransformer;
 import org.selenium.listeners.ListenerClass;
 import org.selenium.listeners.MethodInterceptor;
+import org.selenium.utils.ConfigLoader;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -27,22 +28,15 @@ import ru.yandex.qatools.ashot.Screenshot;
 import ru.yandex.qatools.ashot.shooting.ShootingStrategies;
 
 @Listeners({
-	//AnnotationTransformer.class,
+    AnnotationTransformer.class,
 	ListenerClass.class,
 	MethodInterceptor.class
 })
 public class BaseTest {
 	
-	/* Class level -> Not Thread safe */
-	/*
-	 * Need to use ThreadLocal -> As Many test cases will try to access it at the
-	 * time of parallel execution
-	 */
-	// protected WebDriver driver;
-	// private ThreadLocal<WebDriver> driver = new ThreadLocal<>();
+	private static final String BROWSER = "browser";
 
 	protected WebDriver getDriver() {
-		// return this.driver.get();
 		return DriverManager.getDriver();
 	}
 
@@ -54,29 +48,18 @@ public class BaseTest {
 	/*
 	 * @Optional -> You can run the test case individually directly from Java class
 	 */
-	@Parameters("browser")
+	@Parameters(BROWSER)
 	@BeforeMethod
 	public synchronized void startDriver(@Optional String browser) {
-
-		// System.out.println("@BeforeMethod: @BeforeMethod" + browser);
-		browser = setBrowserValue(browser);
-
-		// setDriver(new DriverManagerOriginal().initializeDriver(browser));
-		// setDriver(DriverManagerFactory.getManager(DriverType.valueOf(browser)).createDriver());
-
-		// driver = new DriverManager().initializeDriver(browser);
-		// setDriver(new OriginalDriverManager().initializeDriver(browser));
+		browser = setBrowserValue(browser).toUpperCase();
 		setDriver(DriverManagerFactory.getManager(DriverType.valueOf(browser)).createDriver());
 		System.out.println("Current Thread info = " + Thread.currentThread().getId() + ", Driver = " + getDriver());
 	}
 
-	@Parameters("browser")
+	@Parameters(BROWSER)
 	@AfterMethod
 	public synchronized void quitDriver(@Optional String browser, ITestResult result) throws IOException {
-
 		takeScreenshotOnTestFailure(browser, result);
-
-		// driver.quit();
 		getDriver().quit();
 
 	}
@@ -90,29 +73,8 @@ public class BaseTest {
 					+ result.getTestClass().getRealClass().getSimpleName() + "_" + result.getMethod().getMethodName()
 					+ ".png");
 			takeScreenshot(destFile);
-			// takeScreenshotUsingAshot(destFile);
 		}
 	}
-
-//	public void injectCookiesToBrowser(Cookies restAssuredCookies) {
-//		List<Cookie> seleniumCookies = new CookieUtils().convertRestAssuredCookiesToSeleniumCookies(restAssuredCookies);
-//		for (Cookie seleniumCookie : seleniumCookies) {
-//			getDriver().manage().addCookie(seleniumCookie);
-//		}
-//		ExtentLogger.info(
-//				"<i> <b>Injecting Selenium Cookies to Browser </b>(by converting RestAssured Cookies to Selenium Cookies) </i>");
-//
-//		/*
-//		 * ExtentLogger.info("<pre> RestAssured Cookies: " + restAssuredCookies +
-//		 * "</pre>"); ExtentLogger.info("<pre> Selenium Cookies: " + seleniumCookies +
-//		 * "</pre>");
-//		 */
-//		ExtentLogger.info("<details><summary><i><font color=black> RestAssured Cookies: </font></i>" + "</summary>"
-//				+ "<pre>" + restAssuredCookies + "</pre>" + "</details> \n");
-//		ExtentLogger.info("<details><summary><i><font color=black> Selenium Cookies: </font></i>" + "</summary>"
-//				+ "<pre>" + seleniumCookies + "</pre>" + "</details> \n");
-//
-//	}
 
 	private void takeScreenshot(File destFile) throws IOException {
 		File srcFile = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
@@ -130,25 +92,17 @@ public class BaseTest {
 	}
 
 	private String setBrowserValue(String browser) {
-		/*
-		 * System.getProperty("browser" -> This is for test execution using Maven
-		 * Command Line file
-		 */
 		note();
 
 		/* This is for test case execution individually from Java class */
 		if (browser == null) {
-			// browser = BrowserType.EDGE;
-			// browser = String.valueOf(BrowserType.EDGE);
-			// browser = BrowserType.EDGE.toString().toUpperCase();
-			// browser = (BrowserType.EDGE).name().toLowerCase();
-			browser = "EDGE";
+			browser = System.getProperty(BROWSER, ConfigLoader.getInstance().getDefaultBrowser());
 			System.out.println(
-					"Test execution not done by Maven cmd or TestNG.xml file ->  setting the value: " + "EDGE");
+					"Test execution not done by Maven cmd or TestNG.xml file ->  setting the value: " + browser);
 		}
 
 		/* This is for test case execution from Maven command line or testng.xml file */
-		browser = System.getProperty("browser", browser);
+		browser = System.getProperty(BROWSER, browser);
 		return browser;
 	}
 

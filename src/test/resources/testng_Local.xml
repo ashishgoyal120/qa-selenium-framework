@@ -13,7 +13,7 @@
 		name="Regression Tests execution over FIREFOX 
 		Browser"
 		parallel="methods">
-		<parameter name="browser" value="FIREFOX"></parameter>
+		<parameter name="browser" value="firefox"></parameter>
 		<packages>
 			<package name="org.selenium.tests"></package>
 		</packages>
