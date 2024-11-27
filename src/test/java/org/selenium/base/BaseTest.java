@@ -32,6 +32,7 @@ import ru.yandex.qatools.ashot.shooting.ShootingStrategies;
 	ListenerClass.class,
 	MethodInterceptor.class
 })
+
 public class BaseTest {
 	
 	private static final String BROWSER = "browser";

@@ -1,7 +1,10 @@
 package org.selenium.tests;
 
+import java.io.IOException;
+
 import org.selenium.annotations.FrameworkAnnotation;
 import org.selenium.base.BaseTest;
+import org.selenium.dataproviders.DataProvidersclass;
 import org.selenium.enums.AuthorType;
 import org.selenium.enums.CategoryType;
 import org.selenium.pages.LoginPage;
@@ -28,10 +31,10 @@ public class LoginTest extends BaseTest {
 	}
 	
 	@FrameworkAnnotation(author = { AuthorType.ASHISH}, category = { CategoryType.SANITY, CategoryType.REGRESSION })
-	@Test(groups = { "SANITY", "REGRESSION" })
-	public void performLogin() throws InterruptedException {
+	@Test(groups = { "SANITY", "REGRESSION" }, dataProviderClass = DataProvidersclass.class, dataProvider = "credentialsProvider")
+	public void performLogin(String userName, String password) throws InterruptedException, IOException {
 		LoginPage login = new LoginPage(getDriver()).launchURL();
-		login.logIntoApplication("Admin", "admin123");
+		login.logIntoApplication(userName, password);
 		ExtentLogger.info("Perform Login is completed Successfully!");
 	}
 

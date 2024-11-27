@@ -1,30 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Automation Test Suite" parallel="tests"
-	thread-count="10" data-provider-thread-count="2">
+
+<suite name="Automation Test Suite" parallel="tests" thread-count="10" data-provider-thread-count="2">
 	<listeners>
-<!-- 		<listener
-			class-name="org.selenium.listeners.AnnotationTransformer"></listener>
- -->		<listener class-name="org.selenium.listeners.ListenerClass"></listener>
-		<listener
-			class-name="org.selenium.listeners.MethodInterceptor"></listener>
+		<listener class-name="org.selenium.listeners.AnnotationTransformer" />
+		<listener class-name="org.selenium.listeners.ListenerClass" />
+		<listener class-name="org.selenium.listeners.MethodInterceptor" />
+
 	</listeners>
-	<test thread-count="2"
-		name="Regression Tests execution over FIREFOX 
-		Browser"
-		parallel="methods">
-		<parameter name="browser" value="firefox"></parameter>
+	
+	<test thread-count="2" name="Regression Tests execution over FIREFOX Browser" parallel="methods">
+		<parameter name="browser" value="firefox" />
 		<packages>
-			<package name="org.selenium.tests"></package>
+			<package name="org.selenium.tests"/>
 		</packages>
 	</test>
-	<test thread-count="2"
-		name="Regression Tests execution over Chrome 
-		Browser"
-		parallel="methods">
-		<parameter name="browser" value="CHROME"></parameter>
+	
+	<test thread-count="2" name="Regression Tests execution over Chrome Browser" parallel="methods">
+		<parameter name="browser" value="CHROME"/>
 		<packages>
-			<package name="org.selenium.tests"></package>
+			<package name="org.selenium.tests"/>
 		</packages>
 	</test>
-</suite> <!-- Suite -->
+</suite>

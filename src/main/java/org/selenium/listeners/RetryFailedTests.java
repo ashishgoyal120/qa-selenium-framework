@@ -13,7 +13,6 @@ public class RetryFailedTests implements IRetryAnalyzer{
 
 	@Override
 	public boolean retry(ITestResult result) {
-
 		boolean value = false;
 		if (ConfigLoader.getInstance().getRetryFailedTests().equalsIgnoreCase(YES)) {
 			if (count < retries) {

@@ -22,6 +22,9 @@ public class ConfigLoader {
 	private static final String FAILED_STEPS_SCREENSHOT = "failed_steps_screenshot";
 	private static final String SKIPPED_STEPS_SCREENSHOT = "skipped_steps_screenshot";
 	private static final String RETRY_FAILED_TESTS = "retry_failed_tests";
+	private static final String ZIPPED_REPORT = "zipped_report";
+	private static final String USERNAME = "username";
+	private static final String USERPASSWORD = "password";
 
 	
 	
@@ -97,6 +100,16 @@ public class ConfigLoader {
 	}
 	public String getRetryFailedTests() {
 		return getPropertyValue(RETRY_FAILED_TESTS);
+	}
+	public String getZippedReport() {
+		return getPropertyValue(ZIPPED_REPORT);
+	}
+
+	public String getUserName() {
+		return getPropertyValue(USERNAME);
+	}
+	public String getUserPassword() {
+		return getPropertyValue(USERPASSWORD);
 	}
 
 }
