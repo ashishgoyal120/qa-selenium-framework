@@ -18,7 +18,7 @@
  
 [📂 src/main/java](./src/main/java)
 <details>
-<summary></summary>
+<summary>Click To Expand</summary>
 
 * org.selenium.annotations
 	- `FrameworkAnnotations.java :`
