@@ -3,7 +3,7 @@
 ## Getting Started
 
 ### Prerequisites
- 1. Requires Selenium Java Maven Dependency.
+ 1. Requires [Selenium-Java Maven Dependency](https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java)
  2. TestNg Maven Dependency
  3. Extent Report Maven Dependency
  4. zt-zip Maven depenedency for Zipping the report.
