@@ -20,10 +20,13 @@
  * org.selenium.annotations
 	<details>
 	 	<summary>FrameworkAnnotations.java :</summary>
-	 	
-	 	* Common commands:
-    	* `File: Open Folder`: open folder as workspace .
-	 	In this Java Interface, this is a custom annotation that allows you to tag test methods with metadata such as the author and category.
-        It contains two elements:
-		* `AuthorType[] author();` → Specifies the author(s) of the test case.
+* Using the vscode command panel can increase the development speed .
+
+* Open command panel: `ctrl+shift+p`
+
+* Common commands:
+    * `File: Open Folder`: open folder as workspace .
+    * `Preferences: Color Theme`: select color theme for editor .
+    * `Preferences: File Icon Theme`: select icon theme for file .
+    * `Developer: Reload Window`: Reload VSCode window .
 	</details>
