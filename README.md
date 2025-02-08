@@ -15,12 +15,12 @@
  
  ### Overview of the Folder Structure
  
- * [📂 src/main/java](./src/main/java) :
+[📂 src/main/java](./src/main/java) :
  	* org.selenium.annotations
- 	<details>
- 	<summary>FrameworkAnnotations.java :</summary>
- 	
- 	``` bash
-	npm install
-	```
- 	</details>
+	 	<details>
+	 	<summary>FrameworkAnnotations.java :</summary>
+	 	
+	 	```bash
+		npm install
+		```
+	 	</details>
