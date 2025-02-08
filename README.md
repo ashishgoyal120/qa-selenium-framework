@@ -33,4 +33,15 @@
  
  tree [📂 src/main/java](./src/main/java) :
  
+ - **src/main/java/**
+  - **org/selenium/annotations/**
+    - `FrameworkAnnotations.java`
+    - `AuthorType.java`
+    - `CategoryType.java`
+  - **org/selenium/utils/**
+    - `DriverManager.java`
+    - `ConfigReader.java`
+    - `Logger.java`
+  - `Main.java`
+ 
 <a href="#top">Back to top</a>
