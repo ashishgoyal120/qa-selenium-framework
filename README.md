@@ -19,7 +19,8 @@
  	
  * org.selenium.annotations
 	<details>
-	 	<summary>`FrameworkAnnotations.java :`</summary>
+	 	<summary>FrameworkAnnotations.java :</summary>
+	 	
 	 	In this Java Interface, this is a custom annotation that allows you to tag test methods with metadata such as the author and category.
         It contains two elements:
         
