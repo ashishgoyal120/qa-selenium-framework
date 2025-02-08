@@ -15,6 +15,7 @@
  
  ### Overview of the Folder Structure
  
+ <details>
  * [src/main/java](./src/main/java) :
  	* org.selenium.annotations
 		- `FrameworkAnnotations.java :`
@@ -29,3 +30,5 @@
 		```
      ----------------------------------
 	* org.selenium.constants
+	
+</details>
