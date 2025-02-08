@@ -16,7 +16,7 @@
  ### Overview of the Folder Structure
  
  <details>
- * [src/main/java](./src/main/java) :
+ <summary>[src/main/java](./src/main/java)</summary>
  	* org.selenium.annotations
 		- `FrameworkAnnotations.java :`
 		```bash
