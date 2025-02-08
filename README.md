@@ -21,6 +21,6 @@
 	<details>
 	 	<summary>FrameworkAnnotations.java :</summary>
 	 	```bash
-		npm install
+		https://github.com/ashishgoyal120/qa-playwright
 		```
-	 	</details>
+	</details>
