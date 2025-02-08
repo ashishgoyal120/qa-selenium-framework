@@ -19,6 +19,9 @@
  * org.selenium.annotations
 	<details>
 	<summary>FrameworkAnnotations.java :</summary>
+	```bash
+	In this
+	```
 	* Using the vscode command panel can increase the development speed .
 	
 	* Open command panel: `ctrl+shift+p`
