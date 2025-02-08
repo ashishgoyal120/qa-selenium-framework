@@ -18,6 +18,8 @@
  
 [📂 src/main/java](./src/main/java)
 <details>
+<summary></summary>
+
 * org.selenium.annotations
 	- `FrameworkAnnotations.java :`
 	```bash
