@@ -18,7 +18,7 @@
 [📂 src/main/java](./src/main/java) :
  	
  * org.selenium.annotations
-<details>
+	<details>
 	 	<summary>FrameworkAnnotations.java :</summary>
 	 	```bash
 		npm install
