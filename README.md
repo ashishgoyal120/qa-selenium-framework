@@ -20,13 +20,13 @@
  * org.selenium.annotations
 	<details>
 	 	<summary>FrameworkAnnotations.java :</summary>
-* Using the vscode command panel can increase the development speed .
+			* Using the vscode command panel can increase the development speed .
 
-* Open command panel: `ctrl+shift+p`
+			* Open command panel: `ctrl+shift+p`
 
-* Common commands:
-    * `File: Open Folder`: open folder as workspace .
-    * `Preferences: Color Theme`: select color theme for editor .
-    * `Preferences: File Icon Theme`: select icon theme for file .
-    * `Developer: Reload Window`: Reload VSCode window .
+			* Common commands:
+			    * `File: Open Folder`: open folder as workspace .
+			    * `Preferences: Color Theme`: select color theme for editor .
+			    * `Preferences: File Icon Theme`: select icon theme for file .
+			    * `Developer: Reload Window`: Reload VSCode window .
 	</details>
