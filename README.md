@@ -15,12 +15,12 @@
  
  ### Overview of the Folder Structure
  
- <details>
- <summary>[src/main/java](./src/main/java)</summary>
- 
- 	* org.selenium.annotations
-		- `FrameworkAnnotations.java :`
-		```bash
+<details>
+<summary>src/main/java</summary>
+
+* org.selenium.annotations
+	- `FrameworkAnnotations.java :`
+	```bash
 			In this Java Interface, this is a custom annotation that allows you to tag test methods with metadata such as the author and category.
           	It contains two elements:
           	 - `AuthorType[] author();` → Specifies the author(s) of the test case.
@@ -28,23 +28,6 @@
              	We have Used 2 Annotations : 
            	 - `@Retention(RetentionPolicy.RUNTIME)` :This specifies that the annotation should be retained at runtime and be available for reflection.In your case, this means that the FrameworkAnnotation can be accessed at runtime using Java Reflection API, which is useful for dynamically handling test cases.
            	 - `@Target(ElementType.METHOD)` : This means that the annotation can only be applied to methods. In a Selenium project, this typically means test methods in a test class.
-		```
-     ----------------------------------
-	* org.selenium.constants
-	
-</details>
-
-<details>
-<summary>Vscode Common Commands</summary>
-
-* Using the vscode command panel can increase the development speed .
-
-* Open command panel: `ctrl+shift+p`
-
-* Common commands:
-    * `File: Open Folder`: open folder as workspace .
-    * `Preferences: Color Theme`: select color theme for editor .
-    * `Preferences: File Icon Theme`: select icon theme for file .
-    * `Developer: Reload Window`: Reload VSCode window .
+	```
 
 </details>
