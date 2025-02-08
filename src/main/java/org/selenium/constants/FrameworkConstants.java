@@ -19,7 +19,7 @@ public class FrameworkConstants {
 	public static final String ICON_OS_MAC = "<i class='fa fa-apple' ></i>";
 	public static final String ICON_OS_LINUX = "<i class='fa fa-linux' ></i>";
 
-//	public static final String ICON_BROWSER_OPERA = "<i class=\"fa fa-opera\" aria-hidden=\"true\"></i>";
+//	public static final String 	 = "<i class=\"fa fa-opera\" aria-hidden=\"true\"></i>";
 //	public static final String ICON_BROWSER_EDGE = "<i class=\"fa fa-edge\" aria-hidden=\"true\"></i>";
 //	public static final String ICON_BROWSER_CHROME = "<i class=\"fa fa-chrome\" aria-hidden=\"true\"></i>";
 //	public static final String ICON_BROWSER_FIREFOX = "<i class=\"fa fa-firefox\" aria-hidden=\"true\"></i>";
