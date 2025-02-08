@@ -18,13 +18,13 @@
 [📂 src/main/java](./src/main/java) :
  	
  * org.selenium.annotations
-<details>
-<summary>FrameworkAnnotations.java :</summary>
-* Using the vscode command panel can increase the development speed .
-
-* Open command panel: `ctrl+shift+p`
-
-* Common commands:
-* `File: Open Folder`: open folder as workspace .
-* `Preferences: Color Theme`: select color theme for editor .
-	</details>
+	<details>
+	<summary>FrameworkAnnotations.java :</summary>
+	* Using the vscode command panel can increase the development speed .
+	
+	* Open command panel: `ctrl+shift+p`
+	
+	* Common commands:
+	* `File: Open Folder`: open folder as workspace .
+	* `Preferences: Color Theme`: select color theme for editor .
+		</details>
