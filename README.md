@@ -20,6 +20,7 @@
  * org.selenium.annotations
 	<details>
 	 	<summary>FrameworkAnnotations.java :</summary>
+	 	
 	 	```bash
 		https://github.com/ashishgoyal120/qa-playwright
 		```
