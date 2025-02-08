@@ -17,4 +17,4 @@
  
  * [src/main/java](./src/main/java) :
  	* org.selenium.annotations
-	-`FrameworkAnnotations.java :`
+		- `FrameworkAnnotations.java :`
