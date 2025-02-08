@@ -13,7 +13,7 @@
  Requires [Jackson-databind Maven dependency](https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind)for serialization and deserialization Java object.
  
  
- ### Understanding Folder Structure
+ # Understanding Folder Structure
  
  ## src/main/java
     #org.selenium.annotations
