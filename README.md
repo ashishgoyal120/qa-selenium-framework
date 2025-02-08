@@ -20,13 +20,10 @@
 	<details>
 	<summary>FrameworkAnnotations.java :</summary>
 	
-	```plaintext
+	```bash
 	In this Java Interface, this is a custom annotation that allows you to tag test methods with metadata such as the author and category.
 	It contains two elements
-	`` `AuthorType[] author();` `` → Specifies the author(s) of the test case.
-	`CategoryType[] category();` → Specifies the category of the test case (e.g., Smoke, Regression).
-	We have Used 2 Annotations 
-	`@Retention(RetentionPolicy.RUNTIME)` :This specifies that the annotation should be retained at runtime and be available for reflection.In your case, this means that the FrameworkAnnotation can be accessed at runtime using Java Reflection API, which is useful for dynamically handling test cases.
-	`@Target(ElementType.METHOD)` : This means that the annotation can only be applied to methods. In a Selenium project, this typically means test methods in a test class.
+	* `AuthorType[] author();` → Specifies the author(s) of the test case
+	* `File: Open Folder`: open folder as workspace .
 	```
 	</details>
