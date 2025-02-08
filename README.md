@@ -19,7 +19,8 @@
  	* org.selenium.annotations
  	<details>
  	<summary>FrameworkAnnotations.java :</summary>
- 	```bash
+ 	
+ 	``` bash
 	npm install
 	```
  	</details>
