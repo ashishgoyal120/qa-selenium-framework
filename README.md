@@ -17,13 +17,13 @@
  
 [📂 src/main/java](./src/main/java) :
  * org.selenium.annotations
-	<details>
-	<summary>FrameworkAnnotations.java :</summary>
+<details>
+<summary>FrameworkAnnotations.java :</summary>
 	
-	```bash
-	In this Java Interface, this is a custom annotation that allows you to tag test methods with metadata such as the author and category.
-	It contains two elements
-	* `AuthorType[] author();` → Specifies the author(s) of the test case
-	* `File: Open Folder`: open folder as workspace .
-	```
-	</details>
+```bash
+In this Java Interface, this is a custom annotation that allows you to tag test methods with metadata such as the author and category.
+It contains two elements
+* `AuthorType[] author();` → Specifies the author(s) of the test case
+* `File: Open Folder`: open folder as workspace .
+```
+</details>
