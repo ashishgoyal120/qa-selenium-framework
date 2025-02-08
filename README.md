@@ -19,5 +19,5 @@
 [📂 src/main/java](./src/main/java)
 <details>
 <summary>org.selenium.annotations</summary>
-* Frameworkannotations.java :
+	- `Frameworkannotations.java` :
 </details>
