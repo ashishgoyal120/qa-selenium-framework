@@ -12,7 +12,8 @@
 - Requires [ashot maven dependency](https://mvnrepository.com/artifact/ru.yandex.qatools.ashot/ashot) for taking screenshot.
 - Requires [Jackson-databind Maven dependency](https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind)for serialization and deserialization Java object.
  
- 
+ ![download](https://github.com/user-attachments/assets/e06b84aa-de1b-4715-9964-530c486bce68)
+
  ### Overview of the Folder Structure
  
 [📂 src/main/java](./src/main/java) :
