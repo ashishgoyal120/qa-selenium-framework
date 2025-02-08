@@ -13,9 +13,9 @@
 - Requires [Jackson-databind Maven dependency](https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind)for serialization and deserialization Java object.
  
  
- $ ./tree-md .
  ### Overview of the Folder Structure
  
- .
  * [src/main/java](./src/main/java)
+ 		**org.selenium.annotations**
+ 		- **FrameworkAnnotations.java :**
  
