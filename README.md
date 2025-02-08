@@ -18,9 +18,8 @@
  
 [📂 src/main/java](./src/main/java)
 <details>
-<summary>Click To Expand</summary>
+<summary>org.selenium.annotations</summary>
 
-* org.selenium.annotations
 	- `FrameworkAnnotations.java :`
 	```bash
 	In this Java Interface, this is a custom annotation that allows you to tag test methods with metadata such as the author and category.
