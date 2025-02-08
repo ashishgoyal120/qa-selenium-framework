@@ -18,6 +18,7 @@
  **src/main/java**
     
     **_org.selenium.annotations_**
+    
       FrameworkAnnotations.java : In this Java Interface, this is a custom annotation that allows you to tag test methods with metadata such as the author and category.
       It contains two elements:
         AuthorType[] author(); → Specifies the author(s) of the test case.
