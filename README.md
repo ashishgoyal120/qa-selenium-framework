@@ -19,7 +19,6 @@
  * org.selenium.annotations
 	<details>
 	<summary>FrameworkAnnotations.java :</summary>
-	
 	```bash
 	dssfsfdsf
 	```
