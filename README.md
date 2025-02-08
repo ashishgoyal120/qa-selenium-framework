@@ -15,7 +15,8 @@
  
  ### Overview of the Folder Structure
  
- * [src/main/java](./src/main/java) :
+ * [📂 src/main/java](./src/main/java) :
  	* org.selenium.annotations
-		- `FrameworkAnnotations.java :`
-		
+ 	<details>
+ 	<summary>FrameworkAnnotations.java :</summary>
+ 	<details>
