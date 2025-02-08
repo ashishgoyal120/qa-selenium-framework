@@ -6,6 +6,9 @@
 		<listener class-name="org.selenium.listeners.AnnotationTransformer" />
 		<listener class-name="org.selenium.listeners.ListenerClass" />
 		<listener class-name="org.selenium.listeners.MethodInterceptor" />
+<!-- 	<listener class-name="com.aventstack.chaintest.plugins.ChainTestListener" />
+        Either user the above listner in base classs or here, I used in base class so commenting here
+ -->		
 
 	</listeners>
 	

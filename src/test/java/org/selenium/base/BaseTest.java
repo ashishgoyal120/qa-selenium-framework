@@ -22,7 +22,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
-
 import ru.yandex.qatools.ashot.AShot;
 import ru.yandex.qatools.ashot.Screenshot;
 import ru.yandex.qatools.ashot.shooting.ShootingStrategies;
@@ -30,7 +29,7 @@ import ru.yandex.qatools.ashot.shooting.ShootingStrategies;
 @Listeners({
     AnnotationTransformer.class,
 	ListenerClass.class,
-	MethodInterceptor.class
+	MethodInterceptor.class,
 })
 
 public class BaseTest {
