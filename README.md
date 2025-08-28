@@ -11,8 +11,7 @@
 - Requires [javax.mail maven dependency](https://mvnrepository.com/artifact/com.sun.mail/javax.mail)for mailing the report.
 - Requires [ashot maven dependency](https://mvnrepository.com/artifact/ru.yandex.qatools.ashot/ashot) for taking screenshot.
 - Requires [Jackson-databind Maven dependency](https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind)for serialization and deserialization Java object.
- 
- 
+
  ### Overview of the Folder Structure
  
 [📂 src/main/java](./src/main/java) :
