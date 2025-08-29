@@ -43,8 +43,8 @@ mvn clean test -DsuiteXmlFile=testng_Local.xml
 
  ---
 
- ### Understanding POM.xml file in Detail : 
- # 1. Project Metadata
+ ## Understanding POM.xml file in Detail : 
+ ### 1. Project Metadata
  ```xml
 <modelVersion>4.0.0</modelVersion>
 <groupId>seleniumFramework</groupId>
@@ -60,7 +60,7 @@ mvn clean test -DsuiteXmlFile=testng_Local.xml
 - **name/url** → Metadata (not mandatory, but useful for documentation).
 - **Purpose**: Defines your project’s identity in Maven’s world.
 
-# 2. Properties
+### 2. Properties
 ```xml
 <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -77,7 +77,7 @@ mvn clean test -DsuiteXmlFile=testng_Local.xml
 - **browserInstances** → Custom property to control parallel browser count (read in Surefire plugin).
 - **Purpose**: Central place to manage constants (easy to update later).
 
-# 3. Dependencies
+### 3. Dependencies
 ```xml
 <dependencies>
     <dependency> Selenium </dependency>
@@ -100,7 +100,7 @@ mvn clean test -DsuiteXmlFile=testng_Local.xml
 - **jackson-databind** → Read/write JSON (useful for test data, API response validation).
 - **Purpose**: These are your toolkit libraries for automation + reporting.
 
-# 4. Build → Plugin Management
+### 4. Build → Plugin Management
 ```xml
 <build>
     <pluginManagement>
@@ -108,7 +108,7 @@ mvn clean test -DsuiteXmlFile=testng_Local.xml
 ```
 - **This section defines all Maven plugins (tools that automate tasks).**
 
-	# a) Clean, Resources, Compiler
+	a) Clean, Resources, Compiler
 	```xml
 		<plugin>
 			<artifactId>maven-clean-plugin</artifactId>
@@ -128,7 +128,7 @@ mvn clean test -DsuiteXmlFile=testng_Local.xml
 	- **compiler-plugin** → Compiles Java code (here with Java 17).
 	- **Purpose**: Standard build cycle tasks.
 
-	# b) Surefire Plugin (Most Important for You 🚀)
+	b) Surefire Plugin (Most Important for You 🚀)
 	```xml
 		<plugin>
 			<groupId>org.apache.maven.plugins</groupId>
@@ -159,7 +159,7 @@ mvn clean test -DsuiteXmlFile=testng_Local.xml
 	- **aspectjweaver dependency** → Required for AspectJ runtime.
 	- **Purpose**: Controls how TestNG executes your tests.
 
-	# c) Jar, Install, Deploy
+	c) Jar, Install, Deploy
 	```xml
 		<plugin> maven-jar-plugin </plugin>
 		<plugin> maven-install-plugin </plugin>
@@ -170,7 +170,7 @@ mvn clean test -DsuiteXmlFile=testng_Local.xml
 	- **deploy-plugin** → Deploys to remote repo (if needed).
 	- **Purpose**: Packaging + distribution.
 
-	# d) Site and Reports
+	d) Site and Reports
 	```xml
 		<plugin> maven-site-plugin </plugin>
 		<plugin> maven-project-info-reports-plugin </plugin>
