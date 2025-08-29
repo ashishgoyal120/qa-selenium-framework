@@ -33,6 +33,9 @@ cd <project-root>
 mvn clean test -DsuiteXmlFile=testng_Local.xml
 ```
 
+**OR**
+
+`Running Individual tests` : Go to testcase can click on Run.
 ---
 
 ### 🔄 Execution Flow
