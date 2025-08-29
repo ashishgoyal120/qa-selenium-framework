@@ -37,8 +37,8 @@ mvn clean test -DsuiteXmlFile=testng_Local.xml
 
 ### 🔄 Execution Flow
 
- 1. When we run ***mvn test*** Maven looks into your ***pom.xml***.
- 2. In ***pom.xml***, under the ***maven-surefire-plugin***, TestNG is configured (directly or via testng.xml).
+ 1. When we run `mvn test` Maven looks into your `pom.xml`.
+ 2. In `pom.xml`, under the `maven-surefire-plugin`, TestNG is configured (directly or via testng.xml).
  3. So Maven doesn’t execute your tests directly. It delegates execution to the Surefire Plugin, which then invokes TestNG.
 
  ---
