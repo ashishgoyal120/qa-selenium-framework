@@ -35,6 +35,14 @@ mvn clean test -DsuiteXmlFile=testng_Local.xml
 
 **OR**
 
+### Using Maven (Terminal / CMD)
+```bash
+cd <project-root>
+mvn clean test 
+```
+
+**OR**
+
 `Running Individual tests` : Go to testcase can click on Run.
 ---
 

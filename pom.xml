@@ -15,7 +15,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.release>17</maven.compiler.release>
-		<suiteFile>testng_Local</suiteFile>
+		<suiteXmlFile>testng_Local</suiteXmlFile>
 		<aspectj.version>1.9.4</aspectj.version>
 		<browserInstances>2</browserInstances>
 	</properties>
@@ -107,7 +107,7 @@
 							<!-- <suiteXmlFile>testng.xml</suiteXmlFile> -->
 							<!--<suiteXmlFile>${suiteFile}</suiteXmlFile>-->
 							<suiteXmlFile>
-								src/test/resources/${suiteFile}.xml</suiteXmlFile>
+								src/test/resources/${suiteXmlFile}.xml</suiteXmlFile>
 						</suiteXmlFiles>
 						<argLine>
 							-javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
