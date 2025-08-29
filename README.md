@@ -1,33 +1,230 @@
-## Selenium Automation Framework
+# 🚀 Selenium Automation Framework
 
-## Getting Started
+A robust automation framework built with **Selenium WebDriver**, **TestNG**, and **Maven**, designed for scalable test execution, reporting, and integration.
 
-### Prerequisites
+---
 
-- Requires [Selenium-Java Maven Dependency](https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java)
-- Requires [TestNg Maven Dependency](https://mvnrepository.com/artifact/org.testng/testng)
-- Requires [Extent Report Maven Dependency](https://mvnrepository.com/artifact/com.aventstack/extentreports)
-- Requires [zt-zip Maven depenedency](https://mvnrepository.com/artifact/org.zeroturnaround/zt-zip) for Zipping the report.
-- Requires [javax.mail maven dependency](https://mvnrepository.com/artifact/com.sun.mail/javax.mail)for mailing the report.
-- Requires [ashot maven dependency](https://mvnrepository.com/artifact/ru.yandex.qatools.ashot/ashot) for taking screenshot.
-- Requires [Jackson-databind Maven dependency](https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind)for serialization and deserialization Java object.
+## 📌 Getting Started
 
- ### Overview of the Folder Structure
- 
-[📂 src/main/java](./src/main/java) :
- * 📦 org.selenium.annotations
-	<details>
-	<summary>☕ FrameworkAnnotations.java :</summary>
-	
-	- In this Java Interface class.
-	- This is a custom annotation that allows you to tag test methods with metadata such as the author and category.
-	- It contains two elements -
-		- `AuthorType[] author();` → Specifies the author(s) of the test case.
-		- `CategoryType[] category();` → Specifies the category of the test case (e.g., Smoke, Regression).
-	- We have Used 2 Annotations : 
-		- `@Retention(RetentionPolicy.RUNTIME)` → This specifies that the annotation should be retained at runtime and be available for reflection.In your case, this means that the FrameworkAnnotation can be accessed at runtime using Java Reflection API, which is useful for dynamically handling test cases.
-		- `@Target(ElementType.METHOD)` → This means that the annotation can only be applied to methods. In a Selenium project, this typically means test methods in a test class.
-	</details>
- * 📦 org.selenium.constants
- 
+### ✅ Prerequisites
+Ensure the following Maven dependencies are added to your `pom.xml`:
+
+- [Selenium Java](https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java) → Browser automation  
+- [TestNG](https://mvnrepository.com/artifact/org.testng/testng) → Test framework (annotations, assertions, parallel execution)  
+- [Extent Reports](https://mvnrepository.com/artifact/com.aventstack/extentreports) → Rich HTML reports  
+- [zt-zip](https://mvnrepository.com/artifact/org.zeroturnaround/zt-zip) → Zip/unzip reports for sharing  
+- [javax.mail](https://mvnrepository.com/artifact/com.sun.mail/javax.mail) → Email test reports  
+- [ashot](https://mvnrepository.com/artifact/ru.yandex.qatools.ashot/ashot) → Full-page and element-level screenshots  
+- [Jackson-databind](https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind) → Serialization & deserialization of JSON test data  
+
+---
+
+## ▶️ Executing Tests
+
+### Using Eclipse IDE
+1. Navigate to `src/test/resources/testng_local.xml`  
+2. Right-click → **Run As → TestNG Suite**  
+
+**OR**
+
+### Using Maven (Terminal / CMD)
+```bash
+cd <project-root>
+mvn clean test -DsuiteXmlFile=testng_Local.xml
+
+---
+
+### 🔄 Execution Flow
+
+ 1. When we run mvn test Maven looks into your pom.xml.In pom.xml, under the maven-surefire-plugin, TestNG is configured (directly or via testng.xml).So Maven doesn’t execute your tests directly. It delegates execution to the Surefire Plugin, which then invokes TestNG.
+
+ ### Understanding POM .xml file : 
+ 🔹 1. Project Metadata
+<modelVersion>4.0.0</modelVersion>
+<groupId>seleniumFramework</groupId>
+<artifactId>seleniumFramework</artifactId>
+<version>0.0.1-SNAPSHOT</version>
+<name>seleniumFramework</name>
+<url>http://www.example.com</url>
+
+
+modelVersion → Always 4.0.0 for Maven projects.
+
+groupId → Unique ID for your project’s group (like a company/domain).
+
+artifactId → Name of the project (this becomes the JAR name).
+
+version → Project version (SNAPSHOT = work in progress).
+
+name/url → Metadata (not mandatory, but useful for documentation).
+
+👉 Purpose: Defines your project’s identity in Maven’s world.
+
+🔹 2. Properties
+<properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.release>17</maven.compiler.release>
+    <suiteFile>testng_Local</suiteFile>
+    <aspectj.version>1.9.4</aspectj.version>
+    <browserInstances>2</browserInstances>
+</properties>
+
+
+project.build.sourceEncoding → Ensures all files use UTF-8 (avoids weird character issues).
+
+maven.compiler.release → Java version (17 here).
+
+suiteFile → TestNG XML file name (used in Surefire plugin).
+
+aspectj.version → Version of AspectJ (needed for weaving code at runtime, used with listeners).
+
+browserInstances → Custom property to control parallel browser count (read in Surefire plugin).
+
+👉 Purpose: Central place to manage constants (easy to update later).
+
+🔹 3. Dependency Management
+<dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>org.junit</groupId>
+            <artifactId>junit-bom</artifactId>
+            <version>5.11.0</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
+
+
+Defines a BOM (Bill of Materials) for JUnit (so all JUnit-related dependencies use same version).
+
+Even though you’re using TestNG, this is helpful if you mix JUnit tests.
+
+👉 Purpose: Keep dependency versions consistent.
+
+🔹 4. Dependencies
+<dependencies>
+    <dependency> Selenium </dependency>
+    <dependency> TestNG </dependency>
+    <dependency> ExtentReports </dependency>
+    <dependency> zt-zip </dependency>
+    <dependency> javax.mail </dependency>
+    <dependency> commons-io </dependency>
+    <dependency> ashot </dependency>
+    <dependency> jackson-databind </dependency>
+</dependencies>
+
+
+Each dependency has a purpose:
+
+selenium-java → Core library to drive browsers.
+
+testng → Testing framework (annotations, assertions, parallel execution).
+
+extentreports → Beautiful HTML test reports.
+
+zt-zip → To zip/unzip test reports or screenshots (for sharing).
+
+javax.mail → Send reports via email.
+
+commons-io → File handling utilities (copy, delete, etc.).
+
+ashot → Take full-page or element screenshots.
+
+jackson-databind → Read/write JSON (useful for test data, API response validation).
+
+👉 Purpose: These are your toolkit libraries for automation + reporting.
+
+🔹 5. Build → Plugin Management
+<build>
+    <pluginManagement>
+        <plugins>
+
+
+This section defines all Maven plugins (tools that automate tasks).
+
+🔸 a) Clean, Resources, Compiler
+<plugin>
+    <artifactId>maven-clean-plugin</artifactId>
+    <version>3.4.0</version>
+</plugin>
+<plugin>
+    <artifactId>maven-resources-plugin</artifactId>
+    <version>3.3.1</version>
+</plugin>
+<plugin>
+    <artifactId>maven-compiler-plugin</artifactId>
+    <version>3.13.0</version>
+</plugin>
+
+
+clean-plugin → Deletes old compiled files (target folder).
+
+resources-plugin → Handles copying resources (.properties, .xml) to target.
+
+compiler-plugin → Compiles Java code (here with Java 17).
+
+👉 Purpose: Standard build cycle tasks.
+
+🔸 b) Surefire Plugin (Most Important for You 🚀)
+<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-surefire-plugin</artifactId>
+    <version>3.0.0-M5</version>
+    <configuration>
+        <threadCount>${browserInstances}</threadCount>
+        <suiteXmlFiles>
+            <suiteXmlFile>src/test/resources/${suiteFile}.xml</suiteXmlFile>
+        </suiteXmlFiles>
+        <argLine>
+            -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+        </argLine>
+    </configuration>
+    <dependencies>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>${aspectj.version}</version>
+        </dependency>
+    </dependencies>
+</plugin>
+
+
+Surefire plugin → Runs your TestNG tests when you do mvn test.
+
+threadCount → Runs multiple browsers in parallel (based on your property).
+
+suiteXmlFiles → Defines which TestNG XML to run (testng_Local.xml).
+
+argLine → Loads AspectJ agent for weaving (used if you’re doing advanced stuff like listeners or retry analyzers).
+
+aspectjweaver dependency → Required for AspectJ runtime.
+
+👉 Purpose: Controls how TestNG executes your tests.
+
+🔸 c) Jar, Install, Deploy
+<plugin> maven-jar-plugin </plugin>
+<plugin> maven-install-plugin </plugin>
+<plugin> maven-deploy-plugin </plugin>
+
+
+jar-plugin → Packages your code as a .jar.
+
+install-plugin → Installs JAR into your local Maven repo.
+
+deploy-plugin → Deploys to remote repo (if needed).
+
+👉 Purpose: Packaging + distribution.
+
+🔸 d) Site and Reports
+<plugin> maven-site-plugin </plugin>
+<plugin> maven-project-info-reports-plugin </plugin>
+
+
+site-plugin → Generates project documentation site.
+
+project-info-reports-plugin → Generates reports (dependencies, plugin usage).
+
+👉 Purpose: Documentation and analysis.
+
 <a href="#top">Back to top</a>
