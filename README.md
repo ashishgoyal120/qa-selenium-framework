@@ -37,31 +37,31 @@ mvn clean test -DsuiteXmlFile=testng_Local.xml
 
 ### 🔄 Execution Flow
 
- 1. When we run mvn test Maven looks into your pom.xml.In pom.xml, under the maven-surefire-plugin, TestNG is configured (directly or via testng.xml).So Maven doesn’t execute your tests directly. It delegates execution to the Surefire Plugin, which then invokes TestNG.
+ 1. When we run ***mvn test*** Maven looks into your ***pom.xml***.
+ 2. In ***pom.xml***, under the ***maven-surefire-plugin***, TestNG is configured (directly or via testng.xml).
+ 3. So Maven doesn’t execute your tests directly. It delegates execution to the Surefire Plugin, which then invokes TestNG.
 
- ### Understanding POM .xml file : 
- 🔹 1. Project Metadata
+ ---
+
+ ### Understanding POM.xml file in Detail : 
+ ## 1. Project Metadata
+ ```bash
 <modelVersion>4.0.0</modelVersion>
 <groupId>seleniumFramework</groupId>
 <artifactId>seleniumFramework</artifactId>
 <version>0.0.1-SNAPSHOT</version>
 <name>seleniumFramework</name>
 <url>http://www.example.com</url>
-
-
+```
 modelVersion → Always 4.0.0 for Maven projects.
-
 groupId → Unique ID for your project’s group (like a company/domain).
-
 artifactId → Name of the project (this becomes the JAR name).
-
 version → Project version (SNAPSHOT = work in progress).
-
 name/url → Metadata (not mandatory, but useful for documentation).
-
 👉 Purpose: Defines your project’s identity in Maven’s world.
 
-🔹 2. Properties
+## 2. Properties
+```bash
 <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.release>17</maven.compiler.release>
@@ -69,19 +69,14 @@ name/url → Metadata (not mandatory, but useful for documentation).
     <aspectj.version>1.9.4</aspectj.version>
     <browserInstances>2</browserInstances>
 </properties>
-
+```
 
 project.build.sourceEncoding → Ensures all files use UTF-8 (avoids weird character issues).
-
 maven.compiler.release → Java version (17 here).
-
 suiteFile → TestNG XML file name (used in Surefire plugin).
-
 aspectj.version → Version of AspectJ (needed for weaving code at runtime, used with listeners).
-
 browserInstances → Custom property to control parallel browser count (read in Surefire plugin).
-
-👉 Purpose: Central place to manage constants (easy to update later).
+Purpose: Central place to manage constants (easy to update later).
 
 🔹 3. Dependency Management
 <dependencyManagement>
