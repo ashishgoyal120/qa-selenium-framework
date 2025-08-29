@@ -31,6 +31,7 @@ Ensure the following Maven dependencies are added to your `pom.xml`:
 ```bash
 cd <project-root>
 mvn clean test -DsuiteXmlFile=testng_Local.xml
+```
 
 ---
 
